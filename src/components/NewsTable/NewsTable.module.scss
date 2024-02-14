@@ -1,0 +1,48 @@
+.newsTable {
+  position: relative;
+  width: 100%;
+  border-collapse: collapse;
+
+  thead{
+    :first-child{
+      border-top-left-radius: 1em;
+    }
+    :last-child{
+      border-top-right-radius: 1em;
+    }
+  }
+
+  th, td {
+    position: relative;
+    padding: 1em;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    position: relative;
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #e8f5e9;
+  }
+
+  .viewButton {
+    display: inline-block;
+    bottom: 0;
+    right: 0;
+    background-color: #81c784;
+    color: #2e7d32;
+    padding: .3em 1em;
+    border-radius: .5em;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #66bb6a;
+    }
+  }
+
+}

@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import NewsTable from './components/NewsTable/NewsTable';
+import ArticlePage from './components/ArticlePage/ArticlePage';
+import FilterPanel from './components/FilterPanel/FilterPanel';
+import ColumnManager from './components/ColumnManager/ColumnManager'
+import { useNews } from './NewsContext';
+import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { showColumnManager } = useNews();
+
+    const isArticlePage = location.pathname.includes('/article/');
+
+    return (
+        <div className="app">
+            {/* Отображается фильтр на главной странице и кнопка "Назад" на странице статьи */}
+            {isArticlePage ? (
+                <div onClick={() => navigate(-1)} className="backButton">Назад</div>
+            ) : (
+                <>
+                    <FilterPanel />
+                    {showColumnManager && <ColumnManager />}
+                </>
+            )}
+            <Routes>
+                <Route path="/" element={<NewsTable />} />
+                <Route path="/article/:title" element={<ArticlePage />} />
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
