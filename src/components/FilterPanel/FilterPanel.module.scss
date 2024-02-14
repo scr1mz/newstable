@@ -4,9 +4,9 @@
   align-items: center;
   background-color: #fff;
   width: 100%;
-  gap: 10px;
+  gap: 1em;
   padding-bottom: 1em;
-  border-radius: 5px;
+  border-radius: 1em;
   z-index: 20;
 }
 
@@ -26,13 +26,14 @@
 }
 
 .customInput{
-  width: 20em;
+  max-width: 20em;
+  width: 100%;
 }
 
 .customSelect{
   position: absolute;
   right: 0;
-  width: 10em;
+  max-width: 10em;
 }
 
 .customInput span, .customSelect span {
@@ -40,7 +41,7 @@
 }
 
 .button {
-  padding: 1em 3em;
+  padding: 1em 2em;
   background-color: #66bb6a;
   color: white;
   border: none;

@@ -43,7 +43,7 @@ const NewsTable = () => {
                             {column.id === 'description' ? (
                                 <>
                                     {newsItem[column.id]}
-                                    <Link to={`/article/${encodeURIComponent(newsItem.title)}`} state={{ newsItem }} className={styles.viewButton}>
+                                    <Link to={`/article/${index}`} state={{ newsItem }} className={styles.viewButton}>
                                         Read more...
                                     </Link>
 
